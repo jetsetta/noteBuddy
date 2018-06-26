@@ -16,8 +16,15 @@ const NoteSchema = new Schema({
   },
   dateTaught: {
     type: Date,
-    required: true
   },
+  topic:{
+    type: Schema.Types.ObjectId,
+    ref: "topics"
+  },
+  user:{
+    type: Schema.Types.ObjectId,
+    ref:"users"
+  }
 
 })
 

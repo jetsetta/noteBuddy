@@ -1,19 +1,39 @@
 const express = require("express")
 const router = express.Router()
 const mongoose = require("mongoose")
+const {
+  ensureAuthenticated, ensureGuest
+} = require("../helpers/auth")
 
 
 // Load Models Here
 require("../models/Note")
+require("../models/Category")
+require("../models/Topic")
 
 const Note = mongoose.model("notes")
+const Category = mongoose.model("categories")
+const Topic = mongoose.model("topics")
 
-
-router.get("/add", (req, res) => {
-  res.render('notes/add')
+router.get("/add",ensureAuthenticated, (req, res) => {
+  Category.find({}).then(categories =>{
+    res.render("notes/add", {categories:categories})
+  })
+  
 })
 
-router.post("/", (req, res) => {
+router.post("/add/category/",ensureAuthenticated, (req, res) => {
+  console.log("We will need to bring out the node inspect" + req.params.category) 
+  Category.findOne({title:req.body.category}).then(category =>{
+    Topic.find({category:category._id}).then(Topics =>{
+      
+      res.render("notes/add", {Topics:Topics})
+    })
+  })
+  
+})
+
+router.post("/",ensureAuthenticated, (req, res) => {
   let errors = []
   if (!req.body.title) {
     errors.push({

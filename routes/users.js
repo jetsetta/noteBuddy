@@ -17,7 +17,7 @@ router.get("/", ensureAuthenticated, (req, res) => {
   res.render("users/index")
 })
 
-router.get("/login", (req, res) => {
+router.get("/login",ensureGuest, (req, res) => {
   res.render("users/login")
 })
 
@@ -30,7 +30,7 @@ router.post("/login", (req,res,next)=>{
 })
 
 
-router.get("/register", (req, res) => {
+router.get("/register",ensureGuest, (req, res) => {
   res.render("users/register")
 })
 
