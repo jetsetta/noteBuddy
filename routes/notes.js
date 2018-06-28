@@ -116,17 +116,11 @@ router.get("/detail/:note_id", (req, res) => {
     .populate("topic")
     .populate("user")
     .then(note => {
-      if (note.user.id == req.user.id) {
+
         res.render("notes/detail", {
           note: note,
-          _isOwner: true
-        })
-      } else {
-        res.render("notes/detail", {
-          note: note
-        })
 
-      }
+      })
     }).catch(err => {
       errors = []
       errors.push(err)
@@ -179,8 +173,6 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
       }
     })
 })
-
-
 
 router.put("/:id", ensureAuthenticated, (req, res) => {
   Note.findOne({
