@@ -13,7 +13,13 @@
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+  {{!-- Fonts --}}
+  <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700" rel="stylesheet">
+  
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -28,13 +34,22 @@
 
   </main>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
   <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('select').formSelect();
+
+    });
+
+    CKEDITOR.replace('note_body')
+  </script>
   <script src="/js/site.js"></script>
 </body>
 

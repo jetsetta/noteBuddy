@@ -5,32 +5,50 @@ const bcrypt = require("bcryptjs")
 const passport = require("passport")
 
 const {
-  ensureAuthenticated, ensureGuest
+  ensureAuthenticated,
+  ensureGuest
 } = require("../helpers/auth")
 
 // Load Models
 require("../models/User")
+require("../models/Note")
+require("../models/Category")
 const User = mongoose.model("users")
-
+const Note = mongoose.model("notes")
+const Category = mongoose.model("categories")
 
 router.get("/", ensureAuthenticated, (req, res) => {
-  res.render("users/index")
+Note.find({
+    user: req.user._id
+  })
+  .populate("user")
+  .populate({
+    path:"topic",
+    populate:{
+      path:"category",
+      model: Category
+    }
+  })
+  .then(notes => {
+    res.render("users/index", {Notes:notes})
+  })
 })
 
-router.get("/login",ensureGuest, (req, res) => {
+
+router.get("/login", ensureGuest, (req, res) => {
   res.render("users/login")
 })
 
-router.post("/login", (req,res,next)=>{
-  passport.authenticate('local',{
+router.post("/login", (req, res, next) => {
+  passport.authenticate('local', {
     successRedirect: "/users",
     failureRedirect: "/users/login",
     failureFlash: true,
-  })(req,res,next)
+  })(req, res, next)
 })
 
 
-router.get("/register",ensureGuest, (req, res) => {
+router.get("/register", ensureGuest, (req, res) => {
   res.render("users/register")
 })
 
@@ -86,7 +104,7 @@ router.post("/register", (req, res) => {
   }
 })
 
-router.get('/logout',(req,res) =>{
+router.get('/logout', (req, res) => {
   req.logout()
   res.redirect("/")
 })

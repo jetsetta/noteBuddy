@@ -1,3 +1,24 @@
 <a href="/notes/add">
 <button>Add New Note</button>
 </a>
+
+<h4>Your notes</h4>
+
+<div class="container">
+  {{#each Notes}}
+  <section class="Notes_preview">
+
+  <h5 class="notes_title">{{title}}</h5>
+  <p>Description: {{description}}</p>
+  <p>Topic: {{topic.title}}</p>
+  <p>Category: {{topic.category.title}}</p>
+  <p>Author: {{user.firstName}}</p>
+  <a href="/notes/detail/{{_id}}">Read More</a>
+  <a href="/notes/edit/{{id}}" class="waves-effect btn teal">Edit</a>
+  <a href="/notes/delete/{{id}}" class="waves-effect btn red">Delete</a>
+
+
+
+  </section>
+  {{/each}}
+</div>

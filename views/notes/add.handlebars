@@ -1,6 +1,10 @@
+
 {{#each errors}}
 <div class="alert alert-danger">{{text}}</div>
-{{else}} {{/each}} {{#if categories}}
+{{/each}} 
+
+
+{{#if categories}}
 <div class="card card-body">
   <form action="/notes/add/category/" method="post">
     <h6>Please Choose one of the categories for the note</h6>
@@ -15,27 +19,40 @@
 </div>
 
 
-{{/if}} {{#if Topics}}
-
-<div class="input-field col s12">
-  <select>
-    <option value="" disabled selected>Choose A Topic for your Note</option>
-    {{#each Topics}}
-    <option value="{{title}}">{{title}}</option>
-    {{/each}}
-  </select>
-  <div class="row">
-    <div class="input-field col s12">
-      <input id="title" type="text" class="validate">
-      <label for="title">Title</label>
-    </div>
-    
-  </div>
-  <div class="row">
-        <div class="input-field col s12">
-          <textarea id="body" class="materialize-textarea"></textarea>
-          <label for="body">Body</label>
-        </div>
+{{/if}} 
+{{#if Topics}}
+<form action="/notes" method="post">
+  <div class="input-field col s12">
+    <select name="topic_id" required>
+      <option value="" disabled selected>Choose A Topic for your Note</option>
+      {{#each Topics}}
+      <option value="{{_id}}">{{title}}</option>
+      {{/each}}
+    </select>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="title" type="text" class="validate" name="title" required value={{title}}>
+        <label for="title">Title</label>
       </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="description" type="text" class="validate" name="description" required value={{description}}>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="date" name="date_taught" id="date_taught">
+        <label for="date_taught">When was this taught?</label>
+      </div>
+    </div>
+    <div class="row">
 
-  {{/if}}
+      <div class="input-field col s12">
+        <textarea id="body" name="note_body" class="materialize-textarea" required>{{{note_body}}}</textarea>
+      </div>
+    </div>
+    <input type="submit" value="Post Note" class="btn teal">
+</form>
+{{/if}}
