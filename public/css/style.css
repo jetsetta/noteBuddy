@@ -2,5 +2,45 @@
   text-transform: capitalize;
 }
 
+.notes_title{
+  font-family: 'Cinzel', serif;
+  font-size: 1.4em; 
+  font-weight: 700;
+}
+.notes_title::after{
+  content:"";
+  background-color:teal;
+  height:.1em;
+  width:100%;
+  position: relative;
+
+  display:block;
+}
+.notes_title::before{
+  content:"";
+  background-color:teal;
+  height:.1em;
+  width:100%;
+  position: relative;
+
+  display:block;
+}
 
 
+.Notes_preview{
+  margin-top:1.3em;
+  border: solid black 2px;
+  border-radius: 15px;
+  padding:0px 20px;
+  box-shadow: 4px 6px 12px 1px #888888;
+}
+
+
+.note_details{
+  margin-top: 1em;
+  border: solid black 2px;
+  border-radius: 15px;
+  padding:0px 20px;
+  box-shadow: 4px 6px 12px 1px #888888;
+  
+}

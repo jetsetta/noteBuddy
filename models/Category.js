@@ -6,6 +6,10 @@ const CategorySchema = new Schema({
     type:String,
     required: true
   },
+  topics:[{
+    type: Schema.Types.ObjectId,
+    ref:"topics"
+  }]
 })
 
 mongoose.model("categories", CategorySchema, "categories")

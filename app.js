@@ -18,6 +18,17 @@ require("./config/passport")(passport)
 const notes = require("./routes/notes")
 const users = require("./routes/users")
 
+
+// Handlebars helpers
+const {
+  formatDate,
+  select,
+} = require("./helpers/hbs")
+
+// Remove in Production
+// const categories = require("./routes/categories")
+// const topics = require("./routes/topics")
+
 // Connect to mongo DB
 mongoose.connect('mongodb://notebuddy:Asdzxc123@ds117711.mlab.com:17711/notebuddy').then(() => {
   console.log("connected to mongo")
@@ -30,6 +41,10 @@ app.use(flash())
 
 // Handlebars Middleware
 app.engine("handlebars", exphbs({
+  helpers:{
+    formatDate:formatDate,
+    select:select,
+  },
   defaultLayout: "main"
 }))
 app.set("view engine", "handlebars")
@@ -79,6 +94,12 @@ app.get('/about', (req, res) => {
 
 app.use("/notes", notes)
 app.use("/users", users)
+
+
+
+// Remove in prodiction
+// app.use("/categories", categories)
+// app.use("/topics", topics)
 
 
 const port = process.env.PORT || 5000
