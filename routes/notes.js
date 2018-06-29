@@ -11,10 +11,12 @@ const {
 require("../models/Note")
 require("../models/Category")
 require("../models/Topic")
+require("../models/Comment")
 
 const Note = mongoose.model("notes")
 const Category = mongoose.model("categories")
 const Topic = mongoose.model("topics")
+const Comment = mongoose.model("comments")
 
 
 router.get("/", (req, res) => {
@@ -27,8 +29,6 @@ router.get("/", (req, res) => {
 
     })
 })
-
-
 
 
 router.get("/add", ensureAuthenticated, (req, res) => {
@@ -108,34 +108,47 @@ router.post("/", ensureAuthenticated, (req, res) => {
   }
 })
 
-
-router.get("/detail/:note_id", (req, res) => {
+router.get("/detail/:note_id",(req, res)=>{
   Note.findOne({
-      _id: req.params.note_id
+    _id:req.params.note_id,
+  })
+  .populate("topic")
+  .populate("user")
+  .then(note => {
+    Comment.find({
+      note:note._id
     })
-    .populate("topic")
     .populate("user")
-    .then(note => {
+    .then(comments =>{
+      if(comments.length > 0){
 
-        res.render("notes/detail", {
-          note: note,
+        comments.forEach(comment =>{
+          if(req.user){
+            if(comment.user._id == req.user.id){
+              comment.is_editable = true
 
-      })
-    }).catch(err => {
-      errors = []
-      errors.push(err)
-
-      res.render("notes/detail", {
-        note: note,
-        errors: errors
-      })
+            }
+          }
+        })
+        res.render("notes/detail",{
+          note:note,
+          comments:comments
+        })
+      }else{
+        res.render("notes/detail",{
+          note:note
+        })
+      }
+    }).catch(()=>{
+      res.redirect("/")
     })
+  })
 
 })
 
 
 router.get("/edit/:id", ensureAuthenticated, (req, res) => {
-  
+
   Note.findOne({
       _id: req.params.id
     })
@@ -152,23 +165,23 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
       }
     }).then(note => {
       if (note != null) {
-        if(req.user.id == note.user._id){
-          
-                  var topics = note.topic.category.topics
-                  var filteredTopics = topics.filter((topic) => {
-                    if (topic.title != note.topic.title) {
-                      return topic
-                    }
-                  })
-                  res.render("notes/edit", {
-                    note: note,
-                    topicTitle: note.topic.title,
-                    topicsArray: filteredTopics
-                  })
+        if (req.user.id == note.user._id) {
 
-        }else{
-          req.flash("error_msg","This is not your note. You can only edit your notes")
-          res.redirect("/notes/detail/"+note._id)
+          var topics = note.topic.category.topics
+          var filteredTopics = topics.filter((topic) => {
+            if (topic.title != note.topic.title) {
+              return topic
+            }
+          })
+          res.render("notes/edit", {
+            note: note,
+            topicTitle: note.topic.title,
+            topicsArray: filteredTopics
+          })
+
+        } else {
+          req.flash("error_msg", "This is not your note. You can only edit your notes")
+          res.redirect("/notes/detail/" + note._id)
         }
       }
     })
@@ -253,9 +266,9 @@ router.get("/delete/:id", ensureAuthenticated, (req, res) => {
           })
 
         }
-      }else{
-        req.flash("error_msg","You can only delete your notes.")
-        res.redirect("/notes/detail/"+note._id)
+      } else {
+        req.flash("error_msg", "You can only delete your notes.")
+        res.redirect("/notes/detail/" + note._id)
       }
     })
 
