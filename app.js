@@ -17,6 +17,7 @@ require("./config/passport")(passport)
 // Load Routes
 const notes = require("./routes/notes")
 const users = require("./routes/users")
+const comments = require("./routes/comments")
 
 
 // Handlebars helpers
@@ -94,6 +95,7 @@ app.get('/about', (req, res) => {
 
 app.use("/notes", notes)
 app.use("/users", users)
+app.use("/comments", comments)
 
 
 
