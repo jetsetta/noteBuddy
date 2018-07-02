@@ -206,6 +206,7 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
 })
 
 router.put("/:id", ensureAuthenticated, (req, res) => {
+  console.log(req.body)
   Note.findOne({
       _id: req.params.id
     }).populate("user")
@@ -214,7 +215,7 @@ router.put("/:id", ensureAuthenticated, (req, res) => {
         note.topic = req.body.topic_id
         note.title = req.body.title
         note.description = req.body.description
-        note.dateTaught = req.body.date_taught
+        note.dateTaught = req.body.dateTaught
         note.body = req.body.note_body
         note.save().then(note => {
           req.flash("success_msg", "Your Note Was Updated!")

@@ -1,43 +1,4 @@
-/* --------------------------------------- */
-/* Navbar */
-/* --------------------------------------- */
-.navbar {
-  background-color: #293D52!important;
-  display: flex;
-  height: 100px;
-  width: 100%;
-}
 
-.navbarTitle {
-  color: #fff;
-  font-size: 40px;
-  margin: 25px 25px 25px 50px;
-  text-decoration: none;
-}
-
-.navbar a {
-  text-decoration: none;
-}
-
-.navbarLinks {
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
-  padding: 0px;
-  width: 70%;
-}
-
-.navbarLink{
-  color: #fff;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 400;
-  padding: 18px;
-}
-
-.fa-bars {
-  color: #fff;
-}
 
 /* --------------------------------------- */
 /* Body

@@ -8,8 +8,10 @@
       </div>
 
       <div class="noteCardContent">
-        <p><b>Description:</b> {{note.description}}</p>
-        <p><strong>{{note.user.firstName}} {{note.user.lastName}}</strong> on {{formatDate note.dateCreated 'MMM Do YYYY'}}</p>
+        <p>
+          <b>Description:</b> {{note.description}}</p>
+        <p>
+          <strong>{{note.user.firstName}} {{note.user.lastName}}</strong> on {{formatDate note.dateCreated 'MMM Do YYYY'}}</p>
       </div>
       <hr>
       <div class="detailsContainer">
@@ -38,24 +40,30 @@
           </div>
         </form>
       </div>
+      {{else}}
+      <div class="addCommentContainer">
+        <p class="plzLogin"><a href="/login">Login to add comments</a></p>
+      </div>
       {{/if}}
+
 
       <hr>
       <div class="commentsContainer">
         <div class="comments">
-          {{#if comments}}
-          {{#each comments}}
+
+          {{#if comments}} {{#each comments}}
           <div class="edit">
             {{#if is_editable}}
-            <a href="/comments/edit/{{_id}}" class="editBtn"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+            <a href="/comments/edit/{{_id}}" class="editBtn">
+              <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </a>
             {{/if}}
             <p>
-            <strong>{{user.firstName}}: </strong>{{comment}}
+              <strong>{{user.firstName}}: </strong>{{comment}}
             </p>
 
           </div>
-          {{/each}}
-          {{/if}}
+          {{/each}} {{/if}}
         </div>
       </div>
     </div>
