@@ -1,0 +1,79 @@
+.addNote {
+  background-color: white;
+  border-collapse: collapse;
+  border-radius: 10px;
+  box-shadow: 7px 12px 10px #293D52;
+  height: auto;
+  margin-top: 30px;
+}
+
+.addNote form {
+  padding: 0 12px 10px 12px;
+}
+
+.addNote select {
+  margin: 5px 0 5px 0;
+}
+
+.addNote hr {
+  border: 0;
+  height: 1px;
+  background: #0C646F;
+  background-image: linear-gradient(to right, #ccc, #0C646F, #ccc);
+  margin-top: 10px;
+}
+
+.addNoteTitle {
+  background-color: #0C646F;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  color: #fff;
+  font-size: 24px;
+  height: 35px;
+  margin: 0;
+  padding: 8px 0px 0px 10px;
+}
+
+.nextBtn {
+  background-color: #0C646F;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 11px;
+  margin-left: 10px;
+  padding: 3px 8px 5px 8px;
+  outline: none;
+}
+
+.topic select {
+  margin-top: 15px;
+}
+
+.addNoteField {
+  padding: 10px 0 10px 0;
+}
+
+.addNoteField input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #0C646F;
+  color: black;
+  font-size: 17px;
+  height: 20px;
+  outline: 0;
+  width: 99.5%;
+}
+
+.lectureDate {
+  padding: 10px 0 15px 0;
+}
+
+.lectureDate input {
+  border: none;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.textAreaContainer {
+  margin-bottom: 15px;
+}

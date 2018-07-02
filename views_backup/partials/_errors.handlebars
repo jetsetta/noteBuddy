@@ -1,0 +1,22 @@
+{{#if error}}
+
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <div class="card-panel red">
+    <div class="white-text flow-text center">{{error}}</div>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+{{#each errors}}
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <div class="card-panel red">
+      <div class="white-text center">{{text}}</div>
+    </div>
+  </div>
+</div>
+
+{{else}}
+{{/each}}

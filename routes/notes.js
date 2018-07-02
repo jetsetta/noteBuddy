@@ -21,7 +21,17 @@ const Comment = mongoose.model("comments")
 
 router.get("/", (req, res) => {
   Note.find({})
-    .populate("user").populate("topic")
+    .populate("user").populate({
+      path: "topic",
+      populate: {
+        path: "category",
+        populate: {
+          path: "topics",
+          model: Topic
+        },
+        model: Category
+      }
+    }).sort({dateCreated:-1})
     .then(notes => {
       res.render("notes/", {
         Notes: notes
@@ -32,7 +42,9 @@ router.get("/", (req, res) => {
 
 
 router.get("/add", ensureAuthenticated, (req, res) => {
-  Category.find({}).then(categories => {
+  Category.find({})
+  .sort({title:1})
+  .then(categories => {
     res.render("notes/add", {
       categories: categories
     })
@@ -47,7 +59,9 @@ router.post("/add/category/", ensureAuthenticated, (req, res) => {
   }).then(category => {
     Topic.find({
       category: category._id
-    }).then(Topics => {
+    })
+    .sort({title:1})
+    .then(Topics => {
 
       res.render("notes/add", {
         Topics: Topics
@@ -90,9 +104,12 @@ router.post("/", ensureAuthenticated, (req, res) => {
       user: req.user._id,
       description: req.body.description
     }
-    if (req.body.date_taught) {
-      newNote["dateTaught"] = req.body.date_taught
+    if (req.body.dateTaught) {
+      newNote["dateTaught"] = req.body.dateTaught
+      console.log(newNote)
     }
+
+    console.log(newNote)
     new Note(newNote).save().then(note => {
       Topic.findOneAndUpdate({
         "_id": req.body.topic_id
@@ -173,6 +190,7 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
               return topic
             }
           })
+          console.log("dateTaught: this" + note.dateTaught)
           res.render("notes/edit", {
             note: note,
             topicTitle: note.topic.title,

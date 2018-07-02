@@ -1,58 +1,61 @@
+<link rel="stylesheet" type="text/css" href="/css/addNew.css">
 
 {{#each errors}}
 <div class="alert alert-danger">{{text}}</div>
-{{/each}} 
-
+{{/each}}
 
 {{#if categories}}
-<div class="card card-body">
-  <form action="/notes/add/category/" method="post">
-    <h6>Please Choose one of the categories for the note</h6>
-    <select name="category">
-      {{#each categories}}
-      <option value="{{title}}">{{title}}</option>
-      {{/each}}
-    </select>
-    <input type="submit" class="btn teal" value="Next">
-  </form>
+<div class="notes">
+    <div class="addNote">
+      <div>
+        <h3 class="addNoteTitle">Add A New Note</h3>
+      </div>
 
+      <form action="/notes/add/category/" method="post">
+        <h3>Choose a Category</h3>
+        <select name="category">
+          {{#each categories}}
+          <option value="{{title}}">{{title}}</option>
+          {{/each}}
+        </select>
+        <input type="submit" class="nextBtn" value="Next">
+      </form>
+    </div>
 </div>
+{{/if}}
 
-
-{{/if}} 
 {{#if Topics}}
-<form action="/notes" method="post">
-  <div class="input-field col s12">
-    <select name="topic_id" required>
-      <option value="" disabled selected>Choose A Topic for your Note</option>
-      {{#each Topics}}
-      <option value="{{_id}}">{{title}}</option>
-      {{/each}}
-    </select>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="title" type="text" class="validate" name="title" required value={{title}}>
-        <label for="title">Title</label>
-      </div>
+<div class="notes">
+  <div class="addNote">
+    <div>
+      <h3 class="addNoteTitle">Add A New Note</h3>
     </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="description" type="text" class="validate" name="description" required value={{description}}>
-        <label for="description">Description</label>
+    <form action="/notes" method="post">
+      <h3>Choose a Topic</h3>
+      <select name="topic_id" required>
+        <option value="" disabled selected>Choose A Topic</option>
+        {{#each Topics}}
+        <option value="{{_id}}">{{title}}</option>
+        {{/each}}
+      </select>
+      <hr>
+      <div class="addNoteField">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input type="date" name="date_taught" id="date_taught">
-        <label for="date_taught">When was this taught?</label>
+      <div class="addNoteField">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" required>
       </div>
-    </div>
-    <div class="row">
-
-      <div class="input-field col s12">
-        <textarea id="body" name="note_body" class="materialize-textarea" required>{{{note_body}}}</textarea>
+      <div class="lectureDate">
+        <label for="dateTaught">When Was This Subject Taught?</label>
+        <input type="date" name="dateTaught" id="date_taught">
       </div>
-    </div>
-    <input type="submit" value="Post Note" class="btn teal">
-</form>
+      <div class="textAreaContainer">
+        <textarea id="body" name="note_body" class="textArea" required>{{{note.body}}}</textarea>
+      </div>
+      <input type="submit" class="noteBtn" value="Post Note">
+    </form>
+  </div>
+</div>
 {{/if}}

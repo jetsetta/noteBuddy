@@ -1,40 +1,42 @@
+<link rel="stylesheet" type="text/css" href="/css/addNew.css">
 
+<div class="notes">
+  <div class="addNote">
+    <div>
+      <h3 class="addNoteTitle">Edit Note</h3>
+    </div>
 
-<form action="/notes/{{note.id}}?_method=PUT" method="post">
-  <div class="input-field col s12">
-    <select name="topic_id" required>
-      {{#select note.topic}}
-      <option value="{{note.topic.id}}" selected>{{topicTitle}}</option>
-      {{#each topicsArray}}
-      <option value="{{_id}}">{{title}}</option>
-      {{/each}}
-      {{/select}}
-    </select>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="title" type="text" class="validate" name="title" required value={{note.title}}>
-        <label for="title">Title</label>
+    <form action="/notes/{{note.id}}?_method=PUT" method="post">
+      <div class="topic">
+        <select name="topic_id" required>
+          {{#select note.topic}}
+          <option value="{{note.topic.id}}" selected>{{topicTitle}}</option>
+          {{#each topicsArray}}
+          <option value="{{_id}}">{{title}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="description" type="text" class="validate" name="description" required value="{{note.description}}">
-        <label for="description">Description</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input type="date" name="date_taught" id="date_taught" value="{{formatDate note.dateTaught 'YYYY-MM-DD'}}">
-        <label for="date_taught">When was this taught?</label>
+      <hr>
+      <div class="addNoteField">
+        <label for="title">Title:</label>
+        <input value="{{note.title}}" type="text" name="title" id="title" required>
       </div>
 
-    </div>
-    <div class="row">
-
-      <div class="input-field col s12">
-        <textarea id="body" name="note_body" class="materialize-textarea" required>{{{note.body}}}</textarea>
+      <div class="addNoteField">
+        <label for="description">Description:</label>
+        <input value="{{note.description}}" type="text" name="description" id="description" required>
       </div>
-    </div>
-    <input type="submit" value="Post Note" class="btn teal">
-</form>
+      <div class="lectureDate">
+        <label for="dateTaught">When Was This Subject Taught?</label>
+        <input value="{{formatDate note.dateTaught 'YYYY-MM-DD'}}" type="date" name="dateTaught" id="date_taught">
+      </div>
 
+      <div class="textAreaContainer">
+        <textarea id="body" name="note_body" class="textArea" required>{{{note.body}}}</textarea>
+      </div>
+
+      <input type="submit" class="noteBtn" value="Post Note">
+    </form>
+  </div>
+</div>

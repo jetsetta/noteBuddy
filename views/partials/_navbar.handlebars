@@ -1,45 +1,52 @@
-<nav class="grey darken-3">
-  <div class="container">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo center">NoteBuddy</a>
-      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large">
-        <i class="fa fa-bars fa-lg"></i>
-      </a>
-      <!-- Right Nav-->
-      <ul class="right hide-on-small-only">
-        {{#if user}}
-        <li>
-          <a href="#">Welcome {{user.firstName}}</a>
-        </li>
-        {{/if}}
-        
-      </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarFont">
+  <a class="navbar-brand" href="/">noteBuddy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <ul id="slide-out" class="sidenav">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/notes">View Notes</a>
-        </li>
-        {{#if user}}
-        {{else}}
-        <li>
-          <a href="/users/login">Login</a>
-        </li>
-        <li>
-          <a href="/users/register">Sign Up</a>
-        </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
 
-        {{/if}}
+    <ul class="navbar-nav">
 
-        
-        <li class="divider"></li>
-        {{#if user}}
-        <li><a href="/users/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
-        {{/if}}
-      </ul>
-
-    </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/notes">View notes</a>
+      </li>
+      {{#if user}}
+      <li class="nav-item">
+        <a href="/users" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="/users/logout" class="nav-link">Logout</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a href="/users/login" class="nav-link">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="/users/register" class="nav-link">Sign Up</a>
+      </li>
+      {{/if}}
+  
+  
+    </ul>
+  
   </div>
 </nav>
+
+
+
+{{!--
+<nav class="navbar"> --}} {{!--
+  <a href="/">
+    <h2 class="navbarTitle"> noteBuddy</h2>
+  </a> --}} {{!-- --}} {{!--
+  <ul class="navbarLinks"> --}} {{!-- --}} {{!--
+    <a class="navbarLink" href="/notes">View Notes</a> --}} {{!-- {{#if user}} --}} {{!--
+    <a class="navbarLink" href="/users">Dashboard</a> --}} {{!--
+    <a class="navbarLink" href="/users/logout">Logout</a> --}} {{!-- {{else}} --}} {{!--
+    <a class="navbarLink" href="/users/login">Login</a> --}} {{!--
+    <a class="navbarLink" href="/users/register">Sign Up</a> --}} {{!-- {{/if}} --}} {{!--
+    <i class="fa fa-bars fa-3x"></i> --}} {{!-- </ul> --}} {{!-- </nav> --}} {{!-- --}}
