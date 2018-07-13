@@ -17,29 +17,29 @@
 
 #### _**Landing Page**_
 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/1%20NB_Landing.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/1.%20NB_Landing.png?raw=true)
 
 #### _**Registration**_
 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/2%20NB_Registration.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/2.%20NB_Registration.png?raw=true)
 
 #### _**Login**_
 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/3%20NB_Login.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/3.%20NB_Login.png?raw=true)
 
 #### _**View Notes**_
 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/4%20NB_Notes.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/4.%20NB_Notes.png?raw=true)
 
 #### _**Add Notes**_
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/5%20NB_Add%20Note.png?raw=true)
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/6%20NB_Add%20Note%202.png?raw=true)
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/7%20NB_Add%20Note%203.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/5.%20NB_Add%20Note.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/6.%20NB_Add%20Note%202.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/7.%20NB_Add%20Note%203.png?raw=true)
 
 #### _**Comments**_
 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/8%20NB_Add%20Comment.png?raw=true) 
-![alt text](https://github.com/jetsetta/notebuddy/blob/297aa9b66c8e286b9553280b1fa8cedfe141c88f/public/img/9%20NB_Edit%20Comment.png?raw=true)
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/8.%20NB_Add%20Comment.png?raw=true) 
+![alt text](https://github.com/abdullah1983/notebuddy/blob/master/public/img/9.%20NB_Edit%20Comment.png?raw=true)
 
 ## What It Is
 noteBuddy is a web application for developers to store notes, links, code snippets, or other useful information pertaining to various coding topics and share posts with peers to create a collective mindshare. This app was developed specially for Digital Crafts cohorts to facilitate collaboration, foster deeper understanding, and reinforce topics learned during lectures
