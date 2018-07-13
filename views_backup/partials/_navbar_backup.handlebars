@@ -1,0 +1,45 @@
+<nav class="grey darken-3">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">NoteBuddy</a>
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large">
+        <i class="fa fa-bars fa-lg"></i>
+      </a>
+      <!-- Right Nav-->
+      <ul class="right hide-on-small-only">
+        {{#if user}}
+        <li>
+          <a href="#">Welcome {{user.firstName}}</a>
+        </li>
+        {{/if}}
+        
+      </ul>
+
+      <ul id="slide-out" class="sidenav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/notes">View Notes</a>
+        </li>
+        {{#if user}}
+        {{else}}
+        <li>
+          <a href="/users/login">Login</a>
+        </li>
+        <li>
+          <a href="/users/register">Sign Up</a>
+        </li>
+
+        {{/if}}
+
+        
+        <li class="divider"></li>
+        {{#if user}}
+        <li><a href="/users/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+        {{/if}}
+      </ul>
+
+    </div>
+  </div>
+</nav>

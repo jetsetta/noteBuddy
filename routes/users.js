@@ -28,7 +28,7 @@ Note.find({
       path:"category",
       model: Category
     }
-  })
+  }).sort({dateCreated:-1})
   .then(notes => {
     res.render("users/index", {Notes:notes})
   })

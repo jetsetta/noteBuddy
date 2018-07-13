@@ -1,0 +1,30 @@
+.mainPage {
+  color: #293D52;
+  text-align: center;
+}
+
+.logoContainer {
+  background-color: #fff;
+  border-radius: 20%;
+  display: block;
+  height: auto;
+  margin: 55px auto 0 auto;
+  overflow: auto;
+  width: 35%;
+}
+
+.icon {
+  display: block;
+  height: auto;
+  padding: 15px;
+  width: 85%;
+}
+
+.homeMessage1 {
+  font-size: 36px;
+  margin: 20px auto 10px auto;
+}
+
+.homeMessage2 {
+  margin-top: 10px;
+}

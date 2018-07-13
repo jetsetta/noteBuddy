@@ -1,23 +1,23 @@
-<div class="row">
+<section>
   {{#each Notes}}
-  <div class="col s12">
-    <div class="card">
-      <div class="card-title teal">
-        {{title}}
-      </div>
-      <div class="card-content">
-        <div class="container">
-          <p>
-          {{description}}
-          </p>
+  <div class="notes">
+    <div class="noteCardContainer">
+      <div class="noteCard">
+        <div>
+          <h3 class="noteCardTitle">{{title}}</h3>
         </div>
-      </div>
-      <div class="card-action">
-        <p>Author: {{user.firstName}} {{user.lastName}}</p>
-        <a href="/notes/detail/{{_id}}">Read More....</a>
+
+        <div class="noteCardContent">
+          <p><b>Category:</b> {{topic.category.title}} | <b>Topic:</b> {{topic.title}}</p>
+          <p><b>Description:</b> {{description}}</p>
+          <p><b>Author</b> {{user.firstName}} {{user.lastName}}</p>
+        </div>
+        <hr>
+        <div class="noteCardAction">
+          <a href="/notes/detail/{{_id}}">Read More</a>
+        </div>
       </div>
     </div>
   </div>
-  {{/each}}
-
-</div>
+{{/each}}
+</section>

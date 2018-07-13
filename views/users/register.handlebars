@@ -1,42 +1,60 @@
+<link rel="stylesheet" type="text/css" href="/css/registration.css">
 
+<section class="registrationPage" id="registrationLink">
+  <div class="registration">
+    <div class="registrationContainer">
+      <h2 class="registrationMessage1">Register A New Profile</h2>
 
-<br>
-<div class="row">
-    <div class="col s12 m6 offset-m3 ">
-      <div class="card lighten-1">
-        <div class="card-content black-text">
-          <span class="card-title center">New User Sign Up</span>
-       <form method="post" action="/users/register">
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" required value="{{firstName}}">  
-      </div>
-      <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" required value="{{lastName}}">  
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" required value="{{email}}">
-        
-      </div>
-      <div class="form-group">
-        <label for="pass">Password</label>
-        <input type="password" class="form-control" id="pass" name="pass" required>
-      </div>
-
-      <div class="form-group">
-        <label for="pass2">Confirm Password</label>
-        <input type="password" class="form-control" id="pass2" name="pass2" required>
-      </div>
-      <div class="center">
-      <button type="submit" class="btn btn-large teal waves-effect waves-light">Sign up<i class="material-icons right">send</i></button>
-      </div>
-    </form>       
+      <form method="post" action="/users/register" class="registrationForm">
+        <div class="registrationField">
+          <div class="registrationTitle">
+            <label for="firstName">First Name:</label>
+          </div>
+          <div class="registrationInput">
+            <input type="text" name="firstName" id="firstName" value="{{firstName}}" required>
+          </div>
         </div>
-      </div>
+
+        <div class="registrationField">
+          <div class="registrationTitle">
+            <label for="lastName">Last Name:</label>
+          </div>
+          <div class="registrationInput">
+            <input type="text" name="lastName" id="lastName" required value="{{lastName}}">
+          </div>
+        </div>
+
+        <div class="registrationField">
+          <div class="registrationTitle">
+            <label for="email">Email:</label>
+          </div>
+          <div class="registrationInput">
+            <input type="email" name="email" id="email" required value="{{email}}">
+          </div>
+        </div>
+
+        <div class="registrationField">
+          <div class="registrationTitle">
+            <label for="pass">Password:</label>
+          </div>
+          <div class="registrationInput">
+            <input type="password" name="pass" id="pass" required>
+          </div>
+        </div>
+
+        <div class="registrationField">
+          <div class="registrationTitle">
+            <label for="pass2">Confirm Password:</label>
+          </div>
+          <div class="registrationInput">
+            <input type="password" name="pass2" id="pass2" required>
+          </div>
+        </div>
+
+        <div class="btnContainer">
+          <button type="submit" class="registrationBtn"> Register</button>
+        </div>
+      </form>
     </div>
   </div>
-            
-
+</section>
