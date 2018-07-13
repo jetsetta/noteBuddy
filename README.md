@@ -89,10 +89,10 @@ Various features for the second iteration:
  
 ## Authors
 
-   [Abdullah Saeed] (https://github.com/abdullah1983)
+   [Abdullah Saeed](https://github.com/abdullah1983)
    
-   [Sean Johnson-Sippial] (https://github.com/jetsetta) 
+   [Sean Johnson-Sippial](https://github.com/jetsetta) 
 
 ## Github Link
 
-[noteBuddy Github] (https://github.com/abdullah1983/noteBuddy)
+[noteBuddy Github](https://github.com/abdullah1983/noteBuddy)
