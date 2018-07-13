@@ -1,0 +1,19 @@
+This is where you edit the comment
+
+{{#if comment}}
+<form action="/comments/update" method="post">
+<div class="comment_group_input">
+  <div class="input_area">
+
+  <textarea name="comment_body" id="comment_body" placeholder="Add comment" class="materialize-textarea" required>{{comment.comment}}</textarea>
+  </div>
+  <div class="btn_area">
+  <input type="hidden" name="note_id" value="{{comment.note._id}}">
+  <input type="hidden" name="comment_id" value="{{comment._id}}">
+  <input type="submit" value="Update Comment" class="btn teal">
+  </div>
+  <a href='/comments/delete/{{comment.user._id}}&{{comment._id}}&{{comment.note._id}}' class="btn red">Delete comment</a>
+
+</div>
+</form>
+{{/if}}

@@ -1,22 +1,25 @@
 {{#if error}}
 
-<div class="row">
-  <div class="col s12 m6 offset-m3">
-    <div class="card-panel red">
-    <div class="white-text flow-text center">{{error}}</div>
-    </div>
-  </div>
+<div class="alert alert-danger alert-dismissible fade show col col-md-4 offset-md-4 errorMsg" role="alert">
+  {{error}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 {{/if}}
 
 {{#each errors}}
-<div class="row">
-  <div class="col s12 m6 offset-m3">
-    <div class="card-panel red">
-      <div class="white-text center">{{text}}</div>
-    </div>
-  </div>
+<div class="alert alert-danger alert-dismissible fade show col col-md-4 offset-md-4 errorMsg" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 {{else}}
 {{/each}}
+
+
+<script>
+  $('.alert').alert()
+</script>

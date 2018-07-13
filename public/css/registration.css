@@ -1,0 +1,59 @@
+.registrationPage {
+  color: #fff;
+  display: flex;
+  height: 80vh;
+}
+
+.registration {
+  margin: 50px auto 0px auto;
+}
+
+.registrationContainer {
+  background-color: #0C646F;
+  border: 2px solid #293D52;
+  border-collapse: collapse;
+  border-radius: 20px;
+  box-shadow: 7px 12px 10px #293D52;
+  padding: 5px 40px 15px 40px;
+}
+
+.registrationMessage1 {
+  font-size: 36px;
+}
+
+.registrationField {
+  padding: 10px;
+}
+
+.registrationTitle {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.registrationInput input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  color: #fff;
+  font-size: 17px;
+  height: 30px;
+  outline: none;
+  width: 100%;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.registrationBtn {
+  background-color: #00C29D;
+  border: 0;
+  border-radius: 15px;
+  color: #293D52;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 12px;
+  outline:none;
+  padding: 10px 15px 12px 15px;
+}

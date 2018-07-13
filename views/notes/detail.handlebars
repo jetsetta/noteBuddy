@@ -1,37 +1,71 @@
-<div class="container">
+<link rel="stylesheet" type="text/css" href="/css/comment.css">
 
-  <div class="note_details">
+<div class="notes">
+  <div class="noteCardContainer">
+    <div class="noteCard">
+      <div>
+        <h3 class="noteCardTitle">{{note.title}}</h3>
+      </div>
 
-    {{{note.body}}}
-
+      <div class="noteCardContent">
+        <p>
+          <b>Description:</b> {{note.description}}</p>
+        <p>
+          <strong>{{note.user.firstName}} {{note.user.lastName}}</strong> on {{formatDate note.dateCreated 'MMM Do YYYY'}}</p>
+      </div>
+      <hr>
+      <div class="detailsContainer">
+        <div class="noteDetails">
+          {{{note.body}}}
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
 
-{{#if user}}
+<div class="notes">
+  <div class="noteCardContainer">
+    <div class="noteCard">
+      <div>
+        <h3 class="noteCardTitle">Comments</h3>
+      </div>
 
-<form action="/comments/add" method="post">
-<div class="comment_group_input">
-  <div class="input_area">
+      {{#if user}}
+      <div class="addCommentContainer">
+        <form action="/comments/add" method="post">
+          <textarea name="comment_body" id="comment_body" placeholder="Add comment" class="commentsTextarea" required></textarea>
+          <div class="btnArea">
+            <input type="hidden" name="note_id" value="{{note._id}}">
+            <input type="submit" class="noteBtn" value="Post Comment">
+          </div>
+        </form>
+      </div>
+      {{else}}
+      <div class="addCommentContainer">
+        <p class="plzLogin"><a href="/users/login">Login to add comments</a></p>
+      </div>
+      {{/if}}
 
-  <textarea name="comment_body" id="comment_body" placeholder="Add comment" class="materialize-textarea" required></textarea>
-  </div>
-  <div class="btn_area">
-  <input type="hidden" name="note_id" value="{{note._id}}">
-  <input type="submit" value="Post Comment">
+
+      <hr>
+      <div class="commentsContainer">
+        <div class="comments">
+
+          {{#if comments}} {{#each comments}}
+          <div class="edit">
+            {{#if is_editable}}
+            <a href="/comments/edit/{{_id}}" class="editBtn">
+              <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </a>
+            {{/if}}
+            <p>
+              <strong>{{user.firstName}}: </strong>{{comment}}
+            </p>
+
+          </div>
+          {{/each}} {{/if}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-</form>
-{{/if}}
-
-{{#if comments}}
-{{#each comments}}
-<p>
-<strong>{{user.firstName}}: </strong>{{comment}}
-</p>
-{{#if is_editable}}
-<a href="/comments/edit/{{_id}}" class="btn" >edit comment</a>
-{{/if}}
-
-{{/each}}
-{{/if}}

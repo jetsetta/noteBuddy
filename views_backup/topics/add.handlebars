@@ -1,0 +1,23 @@
+<h4>This is the topics add form</h4>
+
+<form action="/topics" method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title">
+  </div>
+
+  <div class="input-field col s12">
+    <select name="category" id="categories">
+
+      {{#each categories}}
+      <option id="{{_id}}" value="{{title}}">{{title}}</option>
+
+      {{/each}}
+
+    </select>
+    <label for="categories">Category</label>
+  </div>
+
+
+  <button type="submit" class="btn teal" id="add_topic">Add topic</button>
+</form>

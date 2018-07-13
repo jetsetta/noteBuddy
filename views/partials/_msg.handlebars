@@ -1,22 +1,25 @@
 {{#if success_msg}}
-
-<div class="row">
-  <div class="col s12 m6 offset-m3">
-    <div class="card-panel teal">
-      <div class="white-text flow-text center">{{success_msg}}</div>
-    </div>
-  </div>
+<div class="alert alert-success alert-dismissible fade show col col-md-4 offset-md-4 successMsg" role="alert">
+  {{success_msg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 {{/if}} 
 
 {{#if error_msg}}
-
-<div class="row">
-  <div class="col s12 m6 offset-m3">
-    <div class="card-panel red">
-      <div class="white-text flow-text center">{{error_msg}}</div>
-    </div>
-  </div>
+<div class="alert alert-danger alert-dismissible fade show col col-md-4 offset-md-4 errorMsg" role="alert">
+  {{error_msg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+
+
 {{/if}}
+
+
+<script>  
+  $('.alert').alert()
+</script>

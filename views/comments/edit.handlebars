@@ -1,19 +1,26 @@
-This is where you edit the comment
+<link rel="stylesheet" type="text/css" href="/css/comment.css">
 
-{{#if comment}}
-<form action="/comments/update" method="post">
-<div class="comment_group_input">
-  <div class="input_area">
+<div class="notes">
+  <div class="noteCardContainer">
+    <div class="noteCard">
+      <div>
+        <h3 class="noteCardTitle">Edit Comment</h3>
+      </div>
 
-  <textarea name="comment_body" id="comment_body" placeholder="Add comment" class="materialize-textarea" required>{{comment.comment}}</textarea>
+      {{#if comment}}
+      <div class="addCommentContainer">
+        <form action="/comments/update" method="post">
+          <textarea name="comment_body" id="comment_body" placeholder="Add comment" class="commentsTextarea" required>{{comment.comment}}</textarea>
+          <div class="btnArea">
+            <input type="hidden" name="note_id" value="{{comment.note._id}}">
+            <input type="hidden" name="comment_id" value="{{comment._id}}">
+            <input type="submit" value="Update" class="updateBtn">
+            <a href='/comments/delete/{{comment.user._id}}&{{comment._id}}&{{comment.note._id}}'><button type="button" class="updateBtn">Delete</button></a>
+          </div>
+        </form>
+      </div>
+      {{/if}}
+
+    </div>
   </div>
-  <div class="btn_area">
-  <input type="hidden" name="note_id" value="{{comment.note._id}}">
-  <input type="hidden" name="comment_id" value="{{comment._id}}">
-  <input type="submit" value="Update Comment" class="btn teal">
-  </div>
-  <a href='/comments/delete/{{comment.user._id}}&{{comment._id}}&{{comment.note._id}}' class="btn red">Delete comment</a>
-
 </div>
-</form>
-{{/if}}
