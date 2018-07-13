@@ -7,7 +7,6 @@
   * Screenshots
   * What It Is
   * What We Used
-  * Challenges and Solutions
   * MVP
   * Our Stretch Goals
   * Authors
@@ -57,16 +56,6 @@ noteBuddy is a web application for developers to store notes, links, code snippe
   * Bcrypt
   * Moment
   
-## Challenges and Solutions
-
-Challenge #1 -
-
-
-
-Challenge #2 -
-
-
-
 ## Minimum Viable Product (MVP)
 
 Our first iteration included:
@@ -84,8 +73,9 @@ Our first iteration included:
 Various features for the second iteration:
 
   * Ability to add categories and topics to the database
-  *
-  * 
+  * Converting time zones in "date taught" section for notes submitted
+  * Ability to directly upload images
+  * Ability to create private chat channels among users
  
 ## Authors
 
